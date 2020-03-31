@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Prion Dev Login</title>
+    <link rel="stylesheet" href="https://unpkg.com/picnic">
+    <script type="text/javascript">
+        function getParameterByName(name, url) {
+          if (!url) url = window.location.href;
+          name = name.replace(/[\[\]]/g, '\\$&');
+          var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+              results = regex.exec(url);
+          if (!results) return null;
+          if (!results[2]) return '';
+          return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+        function login(e) {
+            e.preventDefault();
+            let email = document.getElementById("email").value;
+            let callback = getParameterByName("callback")
+            window.location.replace(callback + '?email=' + email);
+        }
+        function onload() {
+          let org = getParameterByName('org');
+          document.getElementById("org").innerHTML = org;
+        }
+      </script>
+  </head>
+  <body>
+  <div class="flex center">
+    <div>
+      <article class="card">
+        <header>
+        <h3>Prion Dev Login <span id="org"></span></h3>
+        </header>
+        <fieldset class="flex two">
+            <label><input id="email" type="email" placeholder="Email"></label>
+            <label><input type="password" placeholder="Password"></label>
+        </fieldset>
+        <footer>
+            <button onclick="login">Login</button>
+        </footer>
+      </article>
+    </div>
+  </div>
+  </body onload="onload()">
+</html>
