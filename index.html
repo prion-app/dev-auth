@@ -14,8 +14,7 @@
           if (!results[2]) return '';
           return decodeURIComponent(results[2].replace(/\+/g, ' '));
         }
-        function login(e) {
-            e.preventDefault();
+        function login() {
             let email = document.getElementById("email").value;
             let callback = getParameterByName("callback");
             if (callback === "prionapp://login") {
@@ -36,7 +35,7 @@
               <label><input type="password" placeholder="Password"></label>
           </fieldset>
           <footer>
-              <button onclick="login">Login</button>
+              <button onclick="login()">Login</button>
           </footer>
         </article>
       </div>
