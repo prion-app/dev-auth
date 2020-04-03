@@ -15,10 +15,9 @@
           return decodeURIComponent(results[2].replace(/\+/g, ' '));
         }
         function login() {
-            let email = document.getElementById("email").value;
             let callback = getParameterByName("callback");
             if (callback === "prionapp://login") {
-              window.location.replace(callback + '?email=' + email);
+              window.location.replace(callback + '?sessionId=123');
             }
         }
       </script>
@@ -30,9 +29,6 @@
           <header>
           <h3>Prion Dev Login</h3>
           </header>
-          <fieldset class="flex two">
-              <label><input id="email" type="email" placeholder="Email"></label>
-          </fieldset>
           <footer>
               <button onclick="login()">Login</button>
           </footer>
