@@ -16,9 +16,7 @@
         }
         function login() {
             let callback = getParameterByName("callback");
-            if (callback === "prionapp://login") {
-              window.location.replace(callback + '?sessionId=123');
-            }
+            window.location.replace(callback + '?sessionId=123');
         }
       </script>
   </head>
